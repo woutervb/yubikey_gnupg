@@ -28,6 +28,6 @@ To download the source file, issue the commands below
 Execute then the command below to build the rpm
 
     cp ~/rpmbuild/SPEC
-    rpmbuild -ta yubikey_gnupg
+    rpmbuild -ba yubikey_gnupg
 
 The final rpm can be found in the directory ~/rpmbuild/RPMS/noarch/
