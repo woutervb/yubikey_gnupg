@@ -1,9 +1,14 @@
 #!/bin/bash
 
 GPGVERS=$(gpg2 --version |grep gpg|awk '{print $3}'|cut -d"." -f2 )
+GPGSUBVERS=$(gpg2 --version |grep gpg|awk '{print $3}'|cut -d"." -f3 )
 if [ $GPGVERS -ge 1 ]; then
   gpg-connect-agent /bye
-  export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+  if [ $GPGSUBVERS -ge 13 ]; then
+    export SSH_AUTH_SOCK=/run/user/$UID/gnupg/S.gpg-agent.ssh
+  else
+    export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+  fi
 else
   # Copyright (c) 2010 Diego E. Pettenò <flameeyes@gmail.com>
   # Available under CC-BY license (Attribution)
