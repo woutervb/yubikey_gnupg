@@ -1,5 +1,5 @@
 Name:		yubikey_gnupg
-Version:	0.2
+Version:	0.3
 Release:	1%{?dist}
 Summary:	This package will install tools to use yubikey with gnupg
 Group:		System Environment/Deamons
